@@ -32,6 +32,10 @@ python main
 
 ./nb/*.json
 
+### curl代码
+
+*_curl.txt
+
 ## 邮箱配置
 
 qq邮箱请password请使用鉴权码:
@@ -58,7 +62,7 @@ pip install uncurl fire requests
 
 ## 已有订阅源
 
-copy cURL(POSIX) on firefox webconsle/network filter by XHR
+copy cURL(POSIX) on firefox webconsle/network filter by XHR，保存成`*_curl.txt`
 
 ### bilibili
 
@@ -68,6 +72,8 @@ url: https://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/dynamic_new
 
 method: get
 
+保存成`bili_curl.txt`
+
 ### anichart
 
 web: https://anilist.co/notifications goto airing
@@ -76,11 +82,14 @@ url: https://anilist.co/graphql
 
 method: get
 
+
+保存成`ani_curl.txt`
+
 ## 数据说明
 
 每一个card是一个字典，由card和它的key构成cards
 
-`cvt_cards`是convert card的缩写，用于转换成下面格式的统一格式
+`cvt_cards`是convert card的缩写，用于转换成下面格式的统一格式，缓存文件格式
 
 ### 样例
 ```json
