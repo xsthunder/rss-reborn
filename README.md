@@ -2,14 +2,26 @@
 
 好处：被动地接受信息源，减少app安装
 
-## 配置
+## 需要在项目根目录配置：
 
 all using utf-8, Unix newline
 ```
-personal_info.json
-bili_curl.txt
-ani_curl.txt
+personal_info.json 
+bili_curl.txt //用于获取接口的数据，看下面的说明
+ani_curl.txt //用于获取接口的数据，看下面的说明
 ```
+
+### personal_info.json 结构
+
+{
+    "sender":"example_render@qq.com",
+    "password":"example_auth_code",
+    "recipient":"example_recipient@qq.com",
+    "smtp":{
+        "address":"smtp.qq.com",
+        "port":465
+    }
+}
 
 ## 运行
 
