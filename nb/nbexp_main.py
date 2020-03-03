@@ -8,16 +8,16 @@ import nbexp_anilist
 import nbexp_bilibili
 
 import traceback
-def run_user_code(fn):
+def run_user_code(mod):
     try:
-        fn()
-        return True
+        name=mod.__name__
+        main = getattr(mod, 'main')
+        main()
     except Exception:
-        print("Exception in user code:"%fn.__module__)
+        print("Exception in user code: %s"%name)
         print("-"*60)
         traceback.print_exc() #file=sys.stdout)
         print("-"*60)
-        return False
 
 from time import sleep, mktime
 from datetime import datetime
@@ -34,8 +34,8 @@ while True:
     t1 = now()
     print(now_s(), end=' ')
 
-    run_user_code(nbexp_anilist.main)
-    run_user_code(nbexp_bilibili.main)
+    run_user_code(nbexp_anilist)
+    run_user_code(nbexp_bilibili)
 
     t2 = now()
     print("duration %3d seconds"%(t2 - t1))

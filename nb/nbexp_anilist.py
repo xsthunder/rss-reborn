@@ -5,13 +5,11 @@
 # file to edit: ./anilist.ipynb
 
 from nbexp_personal import sendEmail
-from nbexp_bilibili import get_main, partial, fetch_code, operator, itemgetter, render_msg, get_time, write_json, exists, read_json
+from nbexp_bilibili import get_main, partial, fetch_code, operator, itemgetter, render_msg, get_time, write_json, exists, read_json, read_code
 from nbexp_bilibili import render_html
-get_time(0)
 
 # 复制为cCURL（posix）
-with open('../ani_curl.txt', 'r', encoding='UTF-8') as f:
-    code = f.read()
+code = read_code('../ani_curl.txt')
 
 fetch = partial(fetch_code, code)
 
@@ -60,3 +58,5 @@ def get_cards():
     return cvt_cards(j)
 json_path = "./anilist.json"
 main = get_main(json_path, get_cards, "ani")
+
+if __name__ == '__main__': main()

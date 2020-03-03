@@ -20,8 +20,11 @@ def read_json(filename):
         return json.load( f)
 
 # 复制为cCURL（posix）
-with open('../bili_curl.txt', 'r', encoding='UTF-8') as f:
-    code = f.read()
+def read_code(code_path):
+    with open(code_path, 'r', encoding='UTF-8') as f:
+        code = f.read().split('\n')[0]
+        return code
+code =read_code('../bili_curl.txt')
 
 import uncurl
 import requests
@@ -114,7 +117,8 @@ def get_main(json_path, get_cards, sub_name=""):
         rj = partial( read_json, json_path,)
 
         if not exists(json_path):
-            wj(cards)
+            # 发送所有
+            wj({})
 
         old_cards = rj()
 
@@ -132,3 +136,6 @@ def get_main(json_path, get_cards, sub_name=""):
 from os.path import exists
 json_path = './bili.json'
 main = get_main(json_path, get_cards, "bili")
+
+
+if __name__ == '__main__': main()

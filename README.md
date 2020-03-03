@@ -130,6 +130,4 @@ pip install uncurl fire requests
 
 ## TODO
 
-2. 增加用于更新鉴权后，增加单个python文件测试，加入subname=subname+"测试"，需要绕过main，直接运行get_cards, get_msg, sendMail
-4. 修改缓存为空时，发送所有
 5. 增加#clear_output_when_commit，#clear_when_commit，两种类型，方便jupyter notebook commit
