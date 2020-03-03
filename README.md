@@ -76,6 +76,26 @@ url: https://anilist.co/graphql
 
 method: get
 
+## 数据说明
+
+每一个card是一个字典，由card和它的key构成cards
+
+`cvt_cards`是convert card的缩写，用于转换成下面格式的统一格式
+
+### 样例
+```json
+{
+    "93211769": {
+        "content": {
+            "title": "【精彩回顾】李玲：中国人究竟需要什么样的医疗制度？",
+            "desc": "一勺思想·李玲：关于中国医疗体系的讨论",
+            "pic": "https://i1.hdslb.com/bfs/archive/39ebde04b813e5e2c804749938495b265860526d.jpg@64w_36h_1c.jpg"
+        },
+        "url": "https://www.bilibili.com/video/av93211769",
+        "time": "2020-03-02T21:26:31"
+    },
+}
+```
 
 
 ## 参考
