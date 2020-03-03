@@ -13,6 +13,7 @@ ani_curl.txt //用于获取接口的数据，看下面的说明
 
 ### personal_info.json 结构
 
+```json
 {
     "sender":"example_render@qq.com",
     "password":"example_auth_code",
@@ -22,6 +23,7 @@ ani_curl.txt //用于获取接口的数据，看下面的说明
         "port":465
     }
 }
+```
 
 ## 运行
 
@@ -56,23 +58,9 @@ https://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256%27)
 
 https://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=371
 
-## depend
 
-pip install uncurl fire requests
 
-## TODO
-
-1. 等待鉴权失效后，独立鉴权文件。
-2. 增加用于更新鉴权后，增加单个python文件测试，加入subname=subname+"测试"，需要绕过main，直接运行get_cards, get_msg, sendMail
-3. 上传github，需要避开敏感信息
-4. 修改缓存为空时，发送所有
-5. 增加#clear_output_when_commit，#clear_when_commit，两种类型，方便jupyter notebook commit
-
-## 使用时间
-
-初步：使用7个小时。
-
-## 已有订阅源
+## 已有订阅源，配置curl.txt
 
 copy cURL(POSIX) on firefox webconsle/network filter by XHR，保存成`*_curl.txt`
 
@@ -129,3 +117,20 @@ method: get
 6. https://docs.python.org/3/library/smtplib.html
 7. https://github.com/fastai/course-v3/blob/master/nbs/dl2/00_exports.ipynb
 8. https://docs.python.org/3/library/traceback.html
+
+## depend
+
+pip install uncurl fire requests
+
+
+## 使用时间
+
+初步：使用7个小时。
+
+## TODO
+
+1. 等待鉴权失效后，独立鉴权文件。
+2. 增加用于更新鉴权后，增加单个python文件测试，加入subname=subname+"测试"，需要绕过main，直接运行get_cards, get_msg, sendMail
+3. 上传github，需要避开敏感信息
+4. 修改缓存为空时，发送所有
+5. 增加#clear_output_when_commit，#clear_when_commit，两种类型，方便jupyter notebook commit
