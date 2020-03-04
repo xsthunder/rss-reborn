@@ -81,28 +81,26 @@ https://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=371
 
 
 
-## setting up `.txt*`
+## setting up `./*.txt`
 
 
 ### bilibili
 
 goto: https://t.bilibili.com/pages/nav/index_new#/video
 
-api url: https://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/dynamic_new
+api-url: https://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/dynamic_new
 
 method: get
 
-copy cURL(POSIX) on firefox webconsle/network filter by XHR saved as `bili_curl.txt`.
+copy cURL(POSIX) on firefox webconsle/network filter by `api-url` and `XHR`, then save as `./bili_curl.txt`.
 
 ### anichart
 
 > steal your auth token from anichart to avoid trouble and save my life.
 
-web: https://anichart.net/settings click login and it'd redirect to` https://anichart.net/auth#access_token=*` copy that url save as `anichar_url_with_token.txt`.
+web: https://anichart.net/settings click login and it'd redirect to` https://anichart.net/auth#access_token=*` copy that url and save as `./anichar_url_with_token.txt`.
 
-method: get
-
-`ani_curl.txt` is curl cmd using [Implicit Grant - AniList APIv2 Docs](https://anilist.gitbook.io/anilist-apiv2-docs/overview/oauth/implicit-grant#making-authenticated-requests) 'js code on web console replacing query data found at [Notifications · AniList](https://anilist.co/notifications) and token stolen at anichart. token is said to be valid for a year. DONT modify.
+`./ani_curl.txt` is curl cmd using [Implicit Grant - AniList APIv2 Docs](https://anilist.gitbook.io/anilist-apiv2-docs/overview/oauth/implicit-grant#making-authenticated-requests) 'js code on web console replacing query data found at [Notifications · AniList](https://anilist.co/notifications) and token stolen at anichart. token is said to be valid for a year. DONT modify.
 
 ## cache structure
 
