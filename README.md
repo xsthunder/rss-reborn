@@ -6,6 +6,7 @@ I hate to have too many apps in my phone for notification. so i build a system t
 
 1. modulized development in jupyter introduced by [course-v3/nbs/dl2 at master · fastai/course-v3](https://github.com/fastai/course-v3/tree/master/nbs/dl2)
 2. webcrawler
+3. neat code. less than 300 lines of valid code(counting `./*.nbexp_.py`).
 
 ## now supports
 
