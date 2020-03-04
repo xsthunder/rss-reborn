@@ -52,7 +52,9 @@ smtp server which sends email and email desitination.
 
 ## project structure
 
-### code to edit
+it's recommanded to read code at generated code and develop at jupyter notebbook
+
+### jupyter notebbook to edit
 
 `./nb/*.ipynb`
 
