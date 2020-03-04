@@ -18,7 +18,7 @@ I hate to have too many apps in my phone for notification. so i build a system t
 pip install uncurl fire requests
 cd nb
 # confiure '.*txt' first
-python main
+python nbexp_main
 ```
 
 ## files to configure
@@ -57,7 +57,7 @@ smtp server which sends email and email desitination.
 
 ### generated code
 
-`./nb/*.py`
+`./nb/nbexp_*.py`
 
 ### data cache
 
