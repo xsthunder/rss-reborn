@@ -17,11 +17,11 @@ I hate to have too many apps in my phone for notification. so i build a system t
 ```
 pip install uncurl fire requests
 cd nb
-# firt to confiure 
+# confiure '.*txt' first
 python main
 ```
 
-## first to configure：
+## files to configure
 
 all using utf-8, Unix newline
 ```
