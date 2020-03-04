@@ -49,7 +49,9 @@ smtp server which sends email and email desitination.
 
 
 
-## code structure
+## project structure
+
+### code to edit
 
 `./nb/*.ipynb`
 
