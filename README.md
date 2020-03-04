@@ -76,14 +76,13 @@ method: get
 
 ### anichart
 
-web: https://anilist.co/notifications goto airing
+> steal your auth token from anichart to avoid trouble and save my life
 
-url: https://anilist.co/graphql
+web: https://anichart.net/settings click login and it'd redirect to` https://anichart.net/auth#access_token=*` copy that url save as `anichar_url_with_token.txt`
 
 method: get
 
-
-保存成`ani_curl.txt`
+`ani_curl.txt` is curl cmd using [Implicit Grant - AniList APIv2 Docs](https://anilist.gitbook.io/anilist-apiv2-docs/overview/oauth/implicit-grant#making-authenticated-requests) 'js code on web console replacing query data found at [Notifications · AniList](https://anilist.co/notifications) and token stolen at anichart.
 
 ## 数据说明
 

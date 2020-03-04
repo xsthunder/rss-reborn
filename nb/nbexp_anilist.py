@@ -10,6 +10,15 @@ from nbexp_bilibili import render_html
 
 # 复制为cCURL（posix）
 code = read_code('../ani_curl.txt')
+token = read_code('../anichar_url_with_token.txt')
+# extract token if its a url
+
+import re
+if 'http' in token:
+    m = re.search('access_token=([^&]+)', token)
+    token = m.group(1)
+code = code.replace('xsthunder_authtoken', token )
+
 
 fetch = partial(fetch_code, code)
 
