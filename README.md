@@ -7,8 +7,9 @@
 all using utf-8, Unix newline
 ```
 personal_info.json 
-bili_curl.txt //用于获取接口的数据，看下面的说明
-ani_curl.txt //用于获取接口的数据，看下面的说明
+//用于获取接口的相关，看下面的说明
+bili_curl.txt 
+anichar_url_with_token.txt
 ```
 
 ### personal_info.json 结构
@@ -82,7 +83,7 @@ web: https://anichart.net/settings click login and it'd redirect to` https://ani
 
 method: get
 
-`ani_curl.txt` is curl cmd using [Implicit Grant - AniList APIv2 Docs](https://anilist.gitbook.io/anilist-apiv2-docs/overview/oauth/implicit-grant#making-authenticated-requests) 'js code on web console replacing query data found at [Notifications · AniList](https://anilist.co/notifications) and token stolen at anichart.
+`ani_curl.txt` is curl cmd using [Implicit Grant - AniList APIv2 Docs](https://anilist.gitbook.io/anilist-apiv2-docs/overview/oauth/implicit-grant#making-authenticated-requests) 'js code on web console replacing query data found at [Notifications · AniList](https://anilist.co/notifications) and token stolen at anichart. token is said to be valid for a year.
 
 ## 数据说明
 
