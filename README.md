@@ -9,6 +9,7 @@ I hate to have too many apps in my phone for notification. so i build a system t
 3. neat code. less than 300 lines of valid code(counting `./*.nbexp_.py`).
 4. aysnc based subprocessing to limit script running time. Always add `timeout` to `requests` to avoid hanging up infinitely. 
 5. better sleep solution in case that system sleeps.
+6. qq mail support by default.
 
 ## now supports
 
@@ -54,7 +55,7 @@ smtp server which sends email and email desitination.
 
 ## project structure
 
-it's recommanded to read code at generated code and develop at jupyter notebbook
+it's recommanded to read generated code and develop at jupyter notebbook
 
 ### jupyter notebbook to edit
 
