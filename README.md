@@ -7,6 +7,8 @@ I hate to have too many apps in my phone for notification. so i build a system t
 1. modulized development in jupyter introduced by [course-v3/nbs/dl2 at master · fastai/course-v3](https://github.com/fastai/course-v3/tree/master/nbs/dl2)
 2. webcrawler
 3. neat code. less than 300 lines of valid code(counting `./*.nbexp_.py`).
+4. aysnc based subprocessing to limit script running time. Always add `timeout` to `requests` to avoid hanging up infinitely. 
+5. better sleep solution in case that system sleeps.
 
 ## now supports
 
@@ -138,7 +140,7 @@ web: https://anichart.net/settings click login and it'd redirect to` https://ani
 6. https://docs.python.org/3/library/smtplib.html
 7. https://github.com/fastai/course-v3/blob/master/nbs/dl2/00_exports.ipynb
 8. https://docs.python.org/3/library/traceback.html
-
+9. [Does time.sleep continue it's timer when the computer is in Sleep mode? : Python](https://www.reddit.com/r/Python/comments/bjh9fk/does_timesleep_continue_its_timer_when_the/em8j47c/)
 
 ## 使用时间
 
