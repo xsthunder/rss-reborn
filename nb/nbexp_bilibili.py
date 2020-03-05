@@ -26,11 +26,11 @@ def read_code(code_path):
         return code
 code =read_code('../bili_curl.txt')
 
-import uncurl
+import nbexp_uncurl
 import requests
 from functools import partial
 def fetch_code(code):
-    c = uncurl.parse(code)
+    c =nbexp_uncurl.parse(code, timeout=5)
     r = eval(c)
     j = r.json()
     return j

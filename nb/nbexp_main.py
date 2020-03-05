@@ -6,18 +6,8 @@
 
 import nbexp_anilist
 import nbexp_bilibili
-
-import traceback
-def run_user_code(mod):
-    try:
-        name=mod.__name__
-        main = getattr(mod, 'main')
-        main()
-    except Exception:
-        print("Exception in user code: %s"%name)
-        print("-"*60)
-        traceback.print_exc() #file=sys.stdout)
-        print("-"*60)
+from functools import partial
+print = partial(print, flush=True)
 
 from time import sleep, mktime
 from datetime import datetime
@@ -28,18 +18,40 @@ def now_s():
     return s[:s.index('.')]
 now_s()
 
-hrs = 1
-sec = hrs * 60 * 60
-while True:
+def timer(slient_mode = False):
+    pf = print
+    def empty_func(*args):
+        pass
+    pf = empty_func if slient_mode else print
+
+    def split_by_time(*args):
+        pf("-"*60 , now_s(), *args)
+
+    split_by_time()
     t1 = now()
-    print(now_s(), end=' ')
+    yield t1, 0
 
-    run_user_code(nbexp_anilist)
-    run_user_code(nbexp_bilibili)
+    while True:
+        t2 = now()
+        split_by_time("time costs %2d secs"%(t2 - t1))
+        yield t2, t2 - t1
 
-    t2 = now()
-    print("duration %3d seconds"%(t2 - t1))
-    if __doc__ == 'Automatically created module for IPython interactive environment':
-        break;
+from IPython.display import display, Javascript
+def save_notebook(): display(Javascript('IPython.notebook.save_checkpoint();'))
 
-    sleep(sec)
+import traceback
+
+def run_user_code(mod):
+    try:
+        name=mod.__name__
+        main = getattr(mod, 'main')
+        main()
+    except Exception:
+        print("Exception in user code: %s"%name)
+        traceback.print_exc(file=sys.stdout)
+
+
+
+run_user_code(nbexp_anilist)
+run_user_code(nbexp_bilibili)
+
