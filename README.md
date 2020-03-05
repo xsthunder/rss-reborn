@@ -1,18 +1,40 @@
-# 订阅自动发送邮件
+# rss-reborn
 
-好处：被动地接受信息源，减少app安装
+I hate to have too many apps in my phone for notification. so i build a system to send me email when there's updates. It's no longer needed to check updates across websites, so it'd help concentration. 
 
-## 需要在项目根目录配置：
+## feature
+
+1. modulized development in jupyter introduced by [course-v3/nbs/dl2 at master · fastai/course-v3](https://github.com/fastai/course-v3/tree/master/nbs/dl2)
+2. webcrawler
+3. neat code. less than 300 lines of valid code(counting `./*.nbexp_.py`).
+
+## now supports
+
+1. bilibili notification
+2. anilist notification
+
+## run
+
+```
+pip install uncurl fire requests
+cd nb
+# confiure '.*txt' first
+python nbexp_main
+```
+
+## files to configure
 
 all using utf-8, Unix newline
 ```
 personal_info.json 
-//用于获取接口的相关，看下面的说明
+// webcrawler related see bellow for clarication
 bili_curl.txt 
 anichar_url_with_token.txt
 ```
 
-### personal_info.json 结构
+### personal_info.json
+
+smtp server which sends email and email desitination.
 
 ```json
 {
@@ -26,32 +48,33 @@ anichar_url_with_token.txt
 }
 ```
 
-## 运行
 
+
+## project structure
+
+it's recommanded to read code at generated code and develop at jupyter notebbook
+
+### jupyter notebbook to edit
+
+`./nb/*.ipynb`
+
+### generated code
+
+`./nb/nbexp_*.py`
+
+### data cache
+
+if its empty all notification will be sent
+
+`./nb/*.json`
+
+### `notification api` in `curl fomart`
 ```
-cd nb
-python main
+*_curl.txt //  parsing to `requests` using `uncurl`
 ```
 
-### 代码
 
-./nb/*.ipynb
-
-### 生成代码
-
-./nb/*.py
-
-### 缓存
-
-缓存为空则发送所有
-
-./nb/*.json
-
-### curl代码
-
-*_curl.txt
-
-## 邮箱配置
+## setting up qq mail
 
 qq邮箱请password请使用鉴权码:
 
@@ -61,37 +84,35 @@ https://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=371
 
 
 
-## 已有订阅源，配置curl.txt
+## setting up `./*.txt`
 
-copy cURL(POSIX) on firefox webconsle/network filter by XHR，保存成`*_curl.txt`
 
 ### bilibili
 
-web: https://t.bilibili.com/pages/nav/index_new#/video
+goto: https://t.bilibili.com/pages/nav/index_new#/video
 
-url: https://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/dynamic_new
+api-url: https://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/dynamic_new
 
 method: get
 
-保存成`bili_curl.txt`
+copy cURL(POSIX) on firefox webconsle/network filter by `api-url` and `XHR`, then save as `./bili_curl.txt`.
 
 ### anichart
 
-> steal your auth token from anichart to avoid trouble and save my life
+> steal your auth token from anichart to avoid trouble and save my life.
 
-web: https://anichart.net/settings click login and it'd redirect to` https://anichart.net/auth#access_token=*` copy that url save as `anichar_url_with_token.txt`
+web: https://anichart.net/settings click login and it'd redirect to` https://anichart.net/auth#access_token=*` copy that url and save as `./anichar_url_with_token.txt`.
 
-method: get
+`./ani_curl.txt` is curl cmd using [Implicit Grant - AniList APIv2 Docs](https://anilist.gitbook.io/anilist-apiv2-docs/overview/oauth/implicit-grant#making-authenticated-requests) 'js code on web console replacing query data found at [Notifications · AniList](https://anilist.co/notifications) and token stolen at anichart. token is said to be valid for a year. DONT modify.
 
-`ani_curl.txt` is curl cmd using [Implicit Grant - AniList APIv2 Docs](https://anilist.gitbook.io/anilist-apiv2-docs/overview/oauth/implicit-grant#making-authenticated-requests) 'js code on web console replacing query data found at [Notifications · AniList](https://anilist.co/notifications) and token stolen at anichart. token is said to be valid for a year.
+## cache structure
 
-## 数据说明
+`./nb/*.json` contains notification data which I call cards. cards is a dict which key is `card_id` and `card`. each `card` is in unified notification structure. `card_id` is used to index card.
 
-每一个card是一个字典，由card和它的key构成cards
+`cvt_cards` means convert card for tranforms api data to cards.
 
-`cvt_cards`是convert card的缩写，用于转换成下面格式的统一格式，缓存文件格式
+### cards
 
-### 样例
 ```json
 {
     "93211769": {
@@ -107,7 +128,7 @@ method: get
 ```
 
 
-## 参考
+## ref
 
 1. https://github.com/waynecrasta/siteWatcher/blob/master/siteWatcher.py
 2. https://stackoverflow.com/questions/12943819/how-to-prettyprint-a-json-file
@@ -117,10 +138,6 @@ method: get
 6. https://docs.python.org/3/library/smtplib.html
 7. https://github.com/fastai/course-v3/blob/master/nbs/dl2/00_exports.ipynb
 8. https://docs.python.org/3/library/traceback.html
-
-## depend
-
-pip install uncurl fire requests
 
 
 ## 使用时间
