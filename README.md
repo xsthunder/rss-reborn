@@ -37,7 +37,7 @@ anichar_url_with_token.txt
 
 ### personal_info.json
 
-smtp server which sends email and email desitination.
+smtp server which sends email and email desitination. save as `./personal_info.json`
 
 ```json
 {
@@ -72,8 +72,9 @@ if its empty all notification will be sent
 `./nb/*.json`
 
 ### `notification api` in `curl fomart`
+
 ```
-*_curl.txt //  parsing to `requests` using `uncurl`
+./*_curl.txt //  parsing to `requests` using `uncurl`
 ```
 
 
