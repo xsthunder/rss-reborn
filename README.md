@@ -144,6 +144,10 @@ web: https://anichart.net/settings click login and it'd redirect to` https://ani
 8. https://docs.python.org/3/library/traceback.html
 9. [Does time.sleep continue it's timer when the computer is in Sleep mode? : Python](https://www.reddit.com/r/Python/comments/bjh9fk/does_timesleep_continue_its_timer_when_the/em8j47c/)
 
+## Notes
+
+`./nb/*uncurl.*` is from [spulec/uncurl: A library to convert curl requests to python-requests.](https://github.com/spulec/uncurl) with small twist. For detailed infomation please see [Allow adding requests keyword arguments using kargs by xsthunder · Pull Request #30 · spulec/uncurl](https://github.com/spulec/uncurl/pull/30) which has been merged.
+
 ## 使用时间
 
 初步:7个小时。
