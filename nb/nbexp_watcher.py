@@ -12,12 +12,17 @@
 # subprocessing and manipuating threads is too raw for me
 # so, i use async program model to deal with the mess
 
+# the program still freeze sometimes
+# https://stackoverflow.com/questions/49572547/python-application-freezes-only-ctrl-c-helps
+# https://stackoverflow.com/questions/29649173/what-is-the-global-default-timeout
+import socket
+socket.setdefaulttimeout(30.)
+
 import os, sys
 from os.path import join
 wd = os.getcwd()
 pyf = join(wd, 'nbexp_main.py')
 code = f'{sys.executable} {pyf}'
-code
 
 from functools import partial
 print=partial(print, flush=True)

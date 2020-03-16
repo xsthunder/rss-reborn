@@ -20,6 +20,9 @@ pip install uncurl fire requests
 cd nb
 # confiure '.*txt' first
 python nbexp_main
+
+# repeatly check for every 30 minutes
+python nbexp_watcher 
 ```
 
 ## files to configure
