@@ -6,7 +6,10 @@ I hate to have too many apps in my phone for notification. so i build a system t
 
 1. modulized development in jupyter introduced by [course-v3/nbs/dl2 at master · fastai/course-v3](https://github.com/fastai/course-v3/tree/master/nbs/dl2)
 2. webcrawler
-3. neat code. less than 300 lines of valid code(counting `./*.nbexp_.py`).
+3. neat code. less than 300 lines of valid code(counting `./nbexp_*.py`).
+4. aysnc based subprocessing to limit script running time. Always add `timeout` to `requests` to avoid hanging up infinitely. 
+5. better sleep solution in case that system sleeps.
+6. qq mail support by default.
 
 ## now supports
 
@@ -37,7 +40,7 @@ anichar_url_with_token.txt
 
 ### personal_info.json
 
-smtp server which sends email and email desitination.
+smtp server which sends email and email desitination. save as `./personal_info.json`
 
 ```json
 {
@@ -55,7 +58,7 @@ smtp server which sends email and email desitination.
 
 ## project structure
 
-it's recommanded to read code at generated code and develop at jupyter notebbook
+it's recommanded to read generated code and develop at jupyter notebbook
 
 ### jupyter notebbook to edit
 
@@ -72,8 +75,9 @@ if its empty all notification will be sent
 `./nb/*.json`
 
 ### `notification api` in `curl fomart`
+
 ```
-*_curl.txt //  parsing to `requests` using `uncurl`
+./*_curl.txt //  parsing to `requests` using `uncurl`
 ```
 
 
@@ -141,7 +145,11 @@ web: https://anichart.net/settings click login and it'd redirect to` https://ani
 6. https://docs.python.org/3/library/smtplib.html
 7. https://github.com/fastai/course-v3/blob/master/nbs/dl2/00_exports.ipynb
 8. https://docs.python.org/3/library/traceback.html
+9. [Does time.sleep continue it's timer when the computer is in Sleep mode? : Python](https://www.reddit.com/r/Python/comments/bjh9fk/does_timesleep_continue_its_timer_when_the/em8j47c/)
 
+## Notes
+
+`./nb/*uncurl.*` is from [spulec/uncurl: A library to convert curl requests to python-requests.](https://github.com/spulec/uncurl) with small twist. For detailed infomation please see [Allow adding requests keyword arguments using kargs by xsthunder · Pull Request #30 · spulec/uncurl](https://github.com/spulec/uncurl/pull/30) which has been merged.
 
 ## 使用时间
 
