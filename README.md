@@ -96,13 +96,13 @@ https://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=371
 
 ### bilibili
 
-goto: https://t.bilibili.com/pages/nav/index_new#/video
+1. first login bilibili
 
-api-url: https://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/dynamic_new
+2. visit: https://t.bilibili.com/pages/nav/index_new#/video
 
-method: get
+3. open web console, find network tab, try refreshing and find request whose url is `https://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/dynamic_new`
 
-copy cURL(POSIX) on firefox webconsle/network filter by `api-url` and `XHR`, then save as `./bili_curl.txt`.
+4. `copy` then `copy as cURL(Windows)`, then save as `./bili_curl.txt`(one line of code, if there's many lines, it'll take the first line).
 
 ### anichart
 
