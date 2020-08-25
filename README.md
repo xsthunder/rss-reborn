@@ -57,7 +57,14 @@ smtp server which sends email and email desitination. save as `./personal_info.j
 }
 ```
 
+## requires
 
+```
+python>=3.7
+six>=1.4
+requests>=2.23
+Ipython>=7.13
+```
 
 ## project structure
 
