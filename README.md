@@ -19,13 +19,16 @@ I hate to have too many apps in my phone for notification. so i build a system t
 ## run
 
 ```
-pip install uncurl fire requests
+pip install fire requests
 cd nb
 # confiure '.*txt' first
 python nbexp_main
 
 # repeatly check for every 30 minutes
 python nbexp_watcher 
+
+# or in linux system run 
+bash run.sh
 ```
 
 ## files to configure
@@ -149,7 +152,8 @@ web: https://anichart.net/settings click login and it'd redirect to` https://ani
 
 ## Notes
 
-`./nb/*uncurl.*` is from [spulec/uncurl: A library to convert curl requests to python-requests.](https://github.com/spulec/uncurl) with small twist. For detailed infomation please see [Allow adding requests keyword arguments using kargs by xsthunder · Pull Request #30 · spulec/uncurl](https://github.com/spulec/uncurl/pull/30) which has been merged.
+1. `./nb/*uncurl.*` is from [spulec/uncurl: A library to convert curl requests to python-requests.](https://github.com/spulec/uncurl) with small twist. For detailed infomation please see [Allow adding requests keyword arguments using kargs by xsthunder · Pull Request #30 · spulec/uncurl](https://github.com/spulec/uncurl/pull/30) which has been merged.
+1. set request timeout is at `bili`
 
 ## 使用时间
 

@@ -30,6 +30,9 @@ import nbexp_uncurl
 import requests
 from functools import partial
 def fetch_code(code):
+    """
+    default timeout for five second
+    """
     c =nbexp_uncurl.parse(code, timeout=5)
     r = eval(c)
     j = r.json()
@@ -45,20 +48,41 @@ def get_time(timestamp):
 
 def cvt_cards(j):
     cards = j['data']['cards']
+
+#     card = cards[0]
+#     uname = card['desc']['user_profile']['info']['uname']
+#     card = card['card']
+#     print( desc)
+#     return
+
+    unames = list(map(lambda card:card['desc']['user_profile']['info']['uname'], cards))
     cards = list(map(operator.itemgetter('card'), cards))
+
     cards = list(map(json.loads, cards))
+
     kl = ('title', 'desc',  'pic', 'stat', 'ctime')
     cards = list(map(itemgetter(*kl), cards))
-    def cvt(card):
+
+    def cvt(tp):
+        card, uname = tp
         content_id = str(card['stat']['aid'])
+
         content = itemgetter(*kl[:-2])(card)
         pic = content['pic'] + '@64w_36h_1c.jpg'
         content['pic'] = pic
+
         d = get_time(card['ctime'])
         url = 'https://www.bilibili.com/video/av' + content_id
-        return (content_id,  {'content': content , "url":url , 'time':d} )
-    cards = dict((map(cvt, cards)))
+
+        return (content_id,  {'content': content , "url":url , 'time':d, 'uname':uname } )
+    cards = dict((map(cvt, zip(cards, unames))))
     return cards
+
+def get_cards():
+    fetch = partial(fetch_code, code)
+    cards = cvt_cards(fetch())
+    return cards
+
 
 def render_div(v):
     content = v['content']
@@ -104,12 +128,12 @@ def render_msg(v_list, sub_name=""):
     msg.attach(part2)
     return msg.as_string()
 
-def get_cards():
-    fetch = partial(fetch_code, code)
-    cards = cvt_cards(fetch())
-    return cards
+
 
 def get_main(json_path, get_cards, sub_name=""):
+    """
+    json_path where to read old cards and save merge content
+    """
 
     def main():
         cards = get_cards()
@@ -133,9 +157,28 @@ def get_main(json_path, get_cards, sub_name=""):
 
     return main
 
+
+def block_on_观视频工作室(tp):
+
+    key, o = tp
+
+    if o['uname'] != '观视频工作室': return True
+
+    if '睡前消息' in o['content']['title']: return True
+
+    return False
+
+def filter_get_cards():
+    cards = get_cards()
+    cards = list(filter(block_on_观视频工作室, cards.items()))
+    cards = dict(cards)
+
+    return cards
+
+
 from os.path import exists
 json_path = './bili.json'
-main = get_main(json_path, get_cards, "bili")
+main = get_main(json_path, filter_get_cards, "bili")
 
 
 if __name__ == '__main__': main()
